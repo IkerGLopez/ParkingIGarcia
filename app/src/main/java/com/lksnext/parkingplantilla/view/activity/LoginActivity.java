@@ -68,14 +68,17 @@ public class LoginActivity extends AppCompatActivity {
         //Observamos la variable logged, la cual nos informara cuando el usuario intente hacer login y se
         //cambia de pantalla en caso de login correcto
         loginViewModel.isLogged().observe(this, logged -> {
-            if (logged != null) {
-                if (logged) {
-                    //Login Correcto
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                } else {
-                    //Login incorrecto
-                }
+            if (logged != null && logged) {
+                //Login Correcto
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        loginViewModel.getErrorMessage().observe(this, message -> {
+            if (message != null) {
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
             }
         });
     }
