@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkingLKS">
         <activity
-            android:name=".view.activity.RegisterActivity"
+            android:name="com.lksnext.parkingplantilla.view.activity.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.RegisterCarActivity"
+            android:name="com.lksnext.parkingplantilla.view.activity.RegisterCarActivity"
             android:exported="false" />
         <activity
-            android:name=".view.activity.LoginActivity"
+            android:name="com.lksnext.parkingplantilla.view.activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name="com.lksnext.parkingplantilla.view.activity.MainActivity"
             android:exported="true" />
     </application>
 

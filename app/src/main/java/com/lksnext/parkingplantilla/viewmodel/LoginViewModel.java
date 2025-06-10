@@ -4,9 +4,6 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.lksnext.parkingplantilla.data.DataRepository;
-import com.lksnext.parkingplantilla.domain.Callback;
-
 public class LoginViewModel extends ViewModel {
 
     // Aquí puedes declarar los LiveData y métodos necesarios para la vista de inicio de sesión
