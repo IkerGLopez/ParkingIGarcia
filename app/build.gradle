@@ -13,6 +13,13 @@ sonar {
 apply plugin: 'com.android.application'
 apply plugin: 'androidx.navigation.safeargs'
 
+// 🔧 Forzar versión correcta de commons-compress
+configurations.all {
+    resolutionStrategy {
+        force 'org.apache.commons:commons-compress:1.26.1'
+    }
+}
+
 android {
     namespace "com.lksnext.parkingplantilla"
     buildToolsVersion "35.0.0"
@@ -64,5 +71,4 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
     androidTestImplementation 'androidx.test:rules:1.6.1'
-
 }
