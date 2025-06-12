@@ -1,3 +1,15 @@
+plugins {
+    id "org.sonarqube" version "6.2.0.5505"
+}
+
+sonar {
+    properties {
+        property "sonar.projectKey", "IkerGLopez_ParkingIGarcia"
+        property "sonar.organization", "parkingigarcia"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'androidx.navigation.safeargs'
 
