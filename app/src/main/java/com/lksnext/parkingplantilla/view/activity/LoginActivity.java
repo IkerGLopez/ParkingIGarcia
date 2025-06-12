@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
         //cambia de pantalla en caso de login correcto
         loginViewModel.isLogged().observe(this, logged -> {
             if (logged != null && logged) {
-                //Login Correcto
+                //Login Correcto.
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
