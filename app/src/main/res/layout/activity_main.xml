@@ -4,94 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".view.activity.MainActivity">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/title"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.lksnext.parkingplantilla.view.fragment.MainFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="sans-serif-black"
-        android:text="APPARK"
-        android:textAlignment="center"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/reservarBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RESERVAR APARCAMIENTO"
-        android:textColor="@color/CasiBlanco"
-        android:backgroundTint="@color/Moradito"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="64dp" />
-
-    <Button
-        android:id="@+id/editarBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="EDITAR RESERVAS"
-        android:textColor="@color/CasiBlanco"
-        android:backgroundTint="@color/Moradito"
-        app:layout_constraintTop_toBottomOf="@id/reservarBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp" />
-
-    <Button
-        android:id="@+id/historialBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HISTORIAL DE RESERVAS"
-        android:textColor="@color/CasiBlanco"
-        android:backgroundTint="@color/Moradito"
-        app:layout_constraintTop_toBottomOf="@id/editarBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp" />
-
-    <Button
-        android:id="@+id/qrBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="QR"
-        android:textColor="@color/CasiBlanco"
-        android:backgroundTint="@color/Moradito"
-        app:layout_constraintTop_toBottomOf="@id/historialBtn"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp" />
-
-    <!--
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/logoutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@drawable/ic_logout"
-        app:backgroundTint="@color/Moradito"
-        app:tint="@null"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="26dp"
-        android:layout_marginEnd="26dp" />
-    -->
+        tools:layout="@layout/fragment_main" />
 
-    <!--
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_nav_menu" />
-    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

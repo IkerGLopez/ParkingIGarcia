@@ -12,4 +12,6 @@
     <color name="orangeDark">#B13102</color>
     <color name="Moradito">#918EE3</color>
     <color name="CasiBlanco">#F6F6F6</color>
+    <color name="MoraditoSelected">#5835F2</color>
+    <color name="CasiNegro">#2E2E2E</color>
 </resources>

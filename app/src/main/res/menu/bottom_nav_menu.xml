@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/newres"
-        android:title="Nueva reserva"
-        android:icon="@drawable/ic_newres_foreground"/>
+        android:id="@+id/nav_reservar"
+        android:icon="@drawable/ic_reservar"
+        android:title="" />
+
     <item
-        android:id="@+id/reservations"
-        android:title="Mis reservas"
-        android:icon="@drawable/ic_reservations_foreground"/>
+        android:id="@+id/nav_editar"
+        android:icon="@drawable/ic_editar"
+        android:title="" />
+
     <item
-        android:id="@+id/person"
-        android:title="Perfil"
-        android:icon="@drawable/ic_person_foreground"/>
+        android:id="@+id/nav_qr"
+        android:icon="@drawable/ic_qr"
+        android:title="" />
+
+    <item
+        android:id="@+id/nav_historial"
+        android:icon="@drawable/ic_historial"
+        android:title="" />
+
+    <item
+        android:id="@+id/nav_config"
+        android:icon="@drawable/ic_person_foreground"
+        android:title="" />
 </menu>

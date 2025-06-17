@@ -1,10 +1,10 @@
 package com.lksnext.parkingplantilla.domain;
 public class Vehiculo {
-    public String marca;
-    public String modelo;
-    public String matricula;
-    public boolean electrico;
-    public boolean discapacidad;
+    private String marca;
+    private String modelo;
+    private String matricula;
+    private boolean electrico;
+    private boolean discapacidad;
 
     public Vehiculo() {
 

@@ -1,7 +1,7 @@
 plugins {
     id "org.sonarqube" version "4.4.1.3373"
     id 'com.android.application'
-//    id 'com.google.gms.google-services'
+    id 'com.google.gms.google-services'
 }
 
 apply plugin: 'com.android.application'
@@ -22,7 +22,7 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.lksnext.parkingigarcia"
+        applicationId "com.lksnext.parkingplantilla"
         minSdkVersion 24
         targetSdkVersion 35
         versionCode 1
@@ -58,7 +58,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
     implementation 'androidx.cardview:cardview:1.0.0'
-//    implementation 'org.apache.commons:commons-compress:1.26.1'
+    implementation 'org.apache.commons:commons-compress:1.26.1'
 
     testImplementation 'junit:junit:4.+'
     testImplementation 'androidx.arch.core:core-testing:2.2.0'
@@ -78,4 +78,14 @@ dependencies {
 
     // Add the dependencies for any other desired Firebase products
     // https://firebase.google.com/docs/android/setup#available-libraries
+
+    // LOGIN AUTH
+    implementation("com.google.firebase:firebase-auth")
+
+    // DATABASE
+    implementation("com.google.firebase:firebase-firestore:25.1.4")
+
+    //QR GENERATOR
+    implementation 'com.google.zxing:core:3.5.1'
+    implementation 'com.google.zxing:javase:3.5.1'
 }

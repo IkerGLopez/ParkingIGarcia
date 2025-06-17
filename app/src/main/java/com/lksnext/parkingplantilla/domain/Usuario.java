@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
-    public String nombre;
-    public String DNI;
-    public String email;
-    public String contrasena;
-    public Vehiculo vehiculo;
-    public List<Reserva> reservas = new ArrayList<>();
+    private String nombre;
+    private String DNI;
+    private String email;
+    private String contrasena;
+    private Vehiculo vehiculo;
+    private List<Reserva> reservas = new ArrayList<>();
     //QR
 
     public Usuario(){

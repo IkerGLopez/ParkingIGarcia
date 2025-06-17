@@ -1,9 +1,9 @@
 package com.lksnext.parkingplantilla.domain;
 public class Plaza {
 
-    public String id;
-    public boolean electrico;
-    public boolean discapacidad;
+    private String id;
+    private boolean electrico;
+    private boolean discapacidad;
 
     public Plaza() {
 

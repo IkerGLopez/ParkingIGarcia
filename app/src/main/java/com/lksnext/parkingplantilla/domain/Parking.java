@@ -3,9 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parking {
-    public String id;
-    public String nombre;
-    public List<Plaza> plazas = new ArrayList<>();
+    private String id;
+    private String nombre;
+    private List<Plaza> plazas = new ArrayList<>();
 
     public Parking() {
 

@@ -25,25 +25,6 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void loginUser(String email, String password) {
-//        logged.setValue(Boolean.TRUE);
-        //Clase para comprobar si los datos de inicio de sesión son correctos o no
-//        DataRepository.getInstance().login(email, password, new Callback() {
-//            //En caso de que el login sea correcto, que se hace
-//            @Override
-//            public void onSuccess() {
-//                //TODO
-//                logged.setValue(Boolean.TRUE);
-//            }
-//
-//            //En caso de que el login sea incorrecto, que se hace
-//            @Override
-//            public void onFailure() {
-//                //TODO
-//                logged.setValue(Boolean.FALSE);
-//            }
-//        });
-
-
         ValidationResult emailValidation = InputValidator.validateNotEmpty(email);
         if (!emailValidation.isSuccess()) {
             errorMessage.setValue(emailValidation.getErrorMessage());
@@ -58,6 +39,26 @@ public class LoginViewModel extends ViewModel {
             return;
         }
 
-        logged.setValue(Boolean.TRUE);
+//        Clase para comprobar si los datos de inicio de sesión son correctos o no
+        DataRepository.getInstance().login(email, password, new Callback() {
+            //En caso de que el login sea correcto, que se hace
+            @Override
+            public void onSuccess() {
+                //TODO
+                logged.setValue(Boolean.TRUE);
+            }
+
+            //En caso de que el login sea incorrecto, que se hace
+            @Override
+            public void onFailure() {
+                //TODO
+                logged.setValue(Boolean.FALSE);
+            }
+        });
+
+
+
+
+//        logged.setValue(Boolean.TRUE);
     }
 }

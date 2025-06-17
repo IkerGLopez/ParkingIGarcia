@@ -3,13 +3,13 @@ package com.lksnext.parkingplantilla.domain;
 import java.util.Date;
 
 public class Reserva {
-    public String id;
-    public Usuario usuario;
-    public Date fecha;
-    public Hora horaInicio;
-    public Hora horaFin;
-    public Plaza plaza;
-    public Parking parking;
+    private String id;
+    private Usuario usuario;
+    private Date fecha;
+    private Hora horaInicio;
+    private Hora horaFin;
+    private Plaza plaza;
+    private Parking parking;
 
     public Reserva() {
 
