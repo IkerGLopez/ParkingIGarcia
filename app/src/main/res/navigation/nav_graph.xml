@@ -2,13 +2,35 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/qrFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.lksnext.parkingplantilla.view.fragment.MainFragment"
-        android:label="@string/fragment_main"
-        tools:layout="@layout/fragment_main">
+        android:id="@+id/reservarFragment"
+        android:name="com.lksnext.parkingplantilla.view.fragment.ReservarFragment"
+        android:label="fragment_reservar"
+        tools:layout="@layout/fragment_reservar" />
+    <fragment
+        android:id="@+id/editarFragment"
+        android:name="com.lksnext.parkingplantilla.view.fragment.EditarFragment"
+        android:label="fragment_editar"
+        tools:layout="@layout/fragment_editar" />
+    <fragment
+        android:id="@+id/qrFragment"
+        android:name="com.lksnext.parkingplantilla.view.fragment.QRFragment"
+        android:label="fragment_qr"
+        tools:layout="@layout/fragment_qr" />
+    <fragment
+        android:id="@+id/historialFragment"
+        android:name="com.lksnext.parkingplantilla.view.fragment.HistorialFragment"
+        android:label="fragment_historial"
+        tools:layout="@layout/fragment_historial" />
+
+    <!-- Fragmento de Configuración con sus acciones -->
+    <fragment
+        android:id="@+id/configFragment"
+        android:name="com.lksnext.parkingplantilla.view.fragment.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" >
     </fragment>
 </navigation>

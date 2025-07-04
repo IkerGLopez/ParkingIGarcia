@@ -1,20 +1,30 @@
 package com.lksnext.parkingplantilla.viewmodel;
 
+
+import android.content.Context;
+import android.text.InputType;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.lksnext.parkingplantilla.data.DataRepository;
-import com.lksnext.parkingplantilla.databinding.ActivityLoginBinding;
-import com.lksnext.parkingplantilla.domain.Callback;
-import com.lksnext.parkingplantilla.utils.InputValidator;
-import com.lksnext.parkingplantilla.utils.ValidationResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.lksnext.parkingplantilla.model.utils.InputValidator;
+import com.lksnext.parkingplantilla.model.utils.ValidationResult;
 
 public class LoginViewModel extends ViewModel {
 
-    // Aquí puedes declarar los LiveData y métodos necesarios para la vista de inicio de sesión
-    MutableLiveData<Boolean> logged = new MutableLiveData<>(null);
-    MutableLiveData<String> errorMessage = new MutableLiveData<>(null);
+    private final MutableLiveData<Boolean> logged = new MutableLiveData<>(null);
+    private final MutableLiveData<String> errorMessage = new MutableLiveData<>(null);
+
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     public LiveData<Boolean> isLogged() {
         return logged;
@@ -23,6 +33,7 @@ public class LoginViewModel extends ViewModel {
     public LiveData<String> getErrorMessage() {
         return errorMessage;
     }
+
 
     public void loginUser(String email, String password) {
         ValidationResult emailValidation = InputValidator.validateNotEmpty(email);
@@ -39,26 +50,44 @@ public class LoginViewModel extends ViewModel {
             return;
         }
 
-//        Clase para comprobar si los datos de inicio de sesión son correctos o no
-        DataRepository.getInstance().login(email, password, new Callback() {
-            //En caso de que el login sea correcto, que se hace
-            @Override
-            public void onSuccess() {
-                //TODO
-                logged.setValue(Boolean.TRUE);
-            }
 
-            //En caso de que el login sea incorrecto, que se hace
-            @Override
-            public void onFailure() {
-                //TODO
-                logged.setValue(Boolean.FALSE);
-            }
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            logged.setValue(Boolean.TRUE);
+                            return;
+                        } else {
+                            logged.setValue(Boolean.FALSE);
+                            return;
+                        }
+                    }
+                });
+    }
+
+    public void forgotPassword(Context context) {
+        EditText input = new EditText(context);
+        input.setHint("Email");
+        input.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        input.setPadding(50, 40, 50, 40); //espacio con las esquinas
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Recuperar contraseña.");
+        builder.setMessage("Inserta tu email");
+        builder.setView(input); //añadir el campo de texto
+
+        builder.setPositiveButton("Confirmar", (dialog, which) -> {
+            Toast.makeText(context, "Correo enviado.", Toast.LENGTH_SHORT).show();
         });
 
+        builder.setNegativeButton("Cancelar", (dialog, which) -> {
+            dialog.dismiss();
+        });
 
-
-
-//        logged.setValue(Boolean.TRUE);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
+
+
 }
