@@ -6,6 +6,7 @@ plugins {
 
 apply plugin: 'com.android.application'
 apply plugin: 'androidx.navigation.safeargs'
+
 apply plugin: 'org.sonarqube'
 
 sonar {
@@ -14,6 +15,12 @@ sonar {
         property "sonar.organization", "parkingigarcia"
         property "sonar.host.url", "https://sonarcloud.io"
     }
+}
+
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.10" // Puedes cambiar a la versión más reciente
 }
 
 android {
@@ -104,4 +111,28 @@ dependencies {
     //QR GENERATOR
     implementation 'com.google.zxing:core:3.5.1'
     implementation 'com.google.zxing:javase:3.5.1'
+}
+
+task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest']) {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+
+    def fileFilter = [
+            '**/R.class',
+            '**/R$*.class',
+            '**/BuildConfig.*',
+            '**/Manifest*.*',
+            '**/*Test*.*'
+    ]
+    def debugTree = fileTree(dir: "$buildDir/intermediates/javac/debug/classes", excludes: fileFilter)
+    def mainSrc = "$project.projectDir/src/main/java"
+
+    sourceDirectories.setFrom files([mainSrc])
+    classDirectories.setFrom files([debugTree])
+    executionData.setFrom fileTree(dir: buildDir, includes: [
+            "jacoco/testDebugUnitTest.exec",
+            "outputs/unit_test_code_coverage/debugUnitTest/testDebugUnitTest.exec"
+    ])
 }
