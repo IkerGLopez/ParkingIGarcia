@@ -17,7 +17,6 @@ import java.util.UUID;
 public class RegisterViewModel extends ViewModel {
     private final MutableLiveData<Boolean> registered = new MutableLiveData<>(null);
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>(null);
-
     private final MutableLiveData<String> userUid = new MutableLiveData<>(null);
     private FirebaseService firebaseService;
 
