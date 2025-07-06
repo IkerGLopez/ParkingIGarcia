@@ -38,7 +38,15 @@ import java.util.function.Consumer;
 
 public class MainViewModel extends ViewModel {
 
-    private final FirebaseService firebaseService = new FirebaseServiceImpl();
+    private final FirebaseService firebaseService;
+
+    public MainViewModel() {
+        firebaseService = new FirebaseServiceImpl();
+    }
+
+    public MainViewModel(FirebaseService firebaseService) {
+        this.firebaseService = firebaseService;
+    }
 
     // ================================== RESERVAR ==================================
 
@@ -79,6 +87,10 @@ public class MainViewModel extends ViewModel {
 
     public LiveData<Boolean> getReservaCompletada() {
         return reservaCompletada;
+    }
+
+    public LiveData<LocalDate> getSelectedDate() {
+        return selectedDate;
     }
 
 
