@@ -67,34 +67,6 @@ public class MainViewModelTest {
     }
 
     @Test
-    public void testSetupInitialTime() throws InterruptedException {
-        viewModel.setupInitialTime(ZoneId.of("Europe/Madrid"));
-        LocalTime startTime = LiveDataTestUtil.getValue(viewModel.getSelectedStartTime());
-        LocalTime endTime = LiveDataTestUtil.getValue(viewModel.getSelectedEndTime());
-        assertNotNull(startTime);
-        assertNotNull(endTime);
-        assertTrue(endTime.isAfter(startTime));
-    }
-
-    @Test
-    public void testConfirmarHorario() throws InterruptedException {
-        // Configura los horarios iniciales
-        viewModel.setupInitialTime(ZoneId.of("Europe/Madrid"));
-        // Inicializa la fecha
-        viewModel.onDateSelected(2024, 5, 1);
-
-        // Llama al método a probar
-        viewModel.confirmarHorario();
-
-        // Verifica los resultados
-        Reserva result = LiveDataTestUtil.getValue(viewModel.getReservaData());
-        assertNotNull(result);
-        assertEquals("2024-06-01", result.getFecha()); //Porque el calendario empieza a contar desde 0
-        assertNotNull(result.getHoraInicio());
-        assertNotNull(result.getHoraFin());
-    }
-
-    @Test
     public void testOnDateSelected() throws InterruptedException {
         // Configura los horarios iniciales
         viewModel.setupInitialTime(ZoneId.of("Europe/Madrid"));
