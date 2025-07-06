@@ -63,10 +63,18 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.4.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'org.apache.commons:commons-compress:1.26.1'
+    implementation 'com.google.guava:guava:32.1.2-jre'
 
     testImplementation 'junit:junit:4.+'
+    testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.0'
     testImplementation 'androidx.arch.core:core-testing:2.2.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'org.mockito:mockito-core:5.5.0'
+    testImplementation 'net.bytebuddy:byte-buddy:1.14.6'
+    testImplementation 'net.bytebuddy:byte-buddy-agent:1.14.6'
+    testImplementation 'org.robolectric:robolectric:4.10.3'
+    testImplementation 'com.google.firebase:firebase-auth:22.1.1'
+    testImplementation 'com.google.firebase:firebase-firestore:24.7.1'
 
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'

@@ -11,6 +11,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.lksnext.parkingplantilla.R;
 import com.lksnext.parkingplantilla.model.data.FirebaseService;
 import com.lksnext.parkingplantilla.model.data.FirebaseServiceImpl;
 import com.lksnext.parkingplantilla.model.domain.Callback;
@@ -22,7 +23,15 @@ public class LoginViewModel extends ViewModel {
     private final MutableLiveData<Boolean> logged = new MutableLiveData<>(null);
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>(null);
 
-    private final FirebaseService firebaseService = new FirebaseServiceImpl();
+    private FirebaseService firebaseService;
+
+    public LoginViewModel() {
+        this.firebaseService = new FirebaseServiceImpl();
+    }
+
+    public LoginViewModel(FirebaseService firebaseService) {
+        this.firebaseService = firebaseService;
+    }
 
     public LiveData<Boolean> isLogged() {
         return logged;
@@ -42,12 +51,11 @@ public class LoginViewModel extends ViewModel {
         }
 
         ValidationResult passValidation = InputValidator.validateNotEmpty(password);
-        if (!emailValidation.isSuccess()) {
+        if (!passValidation.isSuccess()) {
             errorMessage.setValue(passValidation.getErrorMessage());
             logged.setValue(Boolean.FALSE);
             return;
         }
-
 
         firebaseService.login(email, password, new Callback() {
             @Override
@@ -65,6 +73,7 @@ public class LoginViewModel extends ViewModel {
 
     public void forgotPassword(Context context) {
         EditText input = new EditText(context);
+        input.setId(R.id.dialog_email); // Asignar un ID al EditText
         input.setHint("Email");
         input.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
         input.setPadding(50, 40, 50, 40);

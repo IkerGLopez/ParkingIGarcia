@@ -19,7 +19,15 @@ public class RegisterViewModel extends ViewModel {
     private final MutableLiveData<String> errorMessage = new MutableLiveData<>(null);
 
     private final MutableLiveData<String> userUid = new MutableLiveData<>(null);
-    private final FirebaseService firebaseService = new FirebaseServiceImpl();
+    private FirebaseService firebaseService;
+
+    public RegisterViewModel() {
+        firebaseService = new FirebaseServiceImpl();
+    }
+
+    public RegisterViewModel(FirebaseService firebaseService) {
+        this.firebaseService = firebaseService;
+    }
 
     public LiveData<Boolean> isRegistered() {
         return registered;
