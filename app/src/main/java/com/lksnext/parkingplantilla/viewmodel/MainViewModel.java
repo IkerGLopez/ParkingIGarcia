@@ -271,7 +271,6 @@ public class MainViewModel extends ViewModel {
         });
     }
 
-
     public void cancelarReserva(String docId, Callback callback) {
         firebaseService.eliminarReserva(docId, new Callback() {
             @Override
