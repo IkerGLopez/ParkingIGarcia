@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
-import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -15,7 +14,6 @@ import com.lksnext.parkingplantilla.model.adapter.ReservaActivaAdapter;
 import com.lksnext.parkingplantilla.model.data.FirebaseService;
 import com.lksnext.parkingplantilla.model.data.FirebaseServiceImpl;
 import com.lksnext.parkingplantilla.model.domain.Callback;
-import com.lksnext.parkingplantilla.model.domain.Hora;
 import com.lksnext.parkingplantilla.model.domain.Plaza;
 import com.lksnext.parkingplantilla.model.domain.Reserva;
 import com.lksnext.parkingplantilla.model.domain.Vehiculo;
@@ -36,12 +34,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.function.Consumer;
 
 public class MainViewModel extends ViewModel {
 
-    private final FirebaseService firebaseService = new FirebaseServiceImpl();
+    private final FirebaseService firebaseService;
+
+    public MainViewModel() {
+        firebaseService = new FirebaseServiceImpl();
+    }
+
+    public MainViewModel(FirebaseService firebaseService) {
+        this.firebaseService = firebaseService;
+    }
 
     // ================================== RESERVAR ==================================
 
@@ -82,6 +87,10 @@ public class MainViewModel extends ViewModel {
 
     public LiveData<Boolean> getReservaCompletada() {
         return reservaCompletada;
+    }
+
+    public LiveData<LocalDate> getSelectedDate() {
+        return selectedDate;
     }
 
 

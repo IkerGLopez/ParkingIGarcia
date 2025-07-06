@@ -1,14 +1,10 @@
 package com.lksnext.parkingplantilla.model.data;
 
-import android.net.Uri;
-
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.lksnext.parkingplantilla.model.domain.Callback;
 import com.lksnext.parkingplantilla.model.domain.CallbackBoolean;
 import com.lksnext.parkingplantilla.model.domain.Plaza;
 import com.lksnext.parkingplantilla.model.domain.Reserva;
-import com.lksnext.parkingplantilla.model.domain.Usuario;
 import com.lksnext.parkingplantilla.model.domain.Vehiculo;
 import com.lksnext.parkingplantilla.model.listener.OnReservasObtenidasListener;
 
