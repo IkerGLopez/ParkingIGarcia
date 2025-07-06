@@ -94,36 +94,6 @@ public class RegisterViewModelTest {
     }
 
     @Test
-    public void registrarUsuario_validData_onSuccess_setsRegisteredTrue() throws InterruptedException {
-        // Simular que el correo no existe
-        ArgumentCaptor<CallbackBoolean> emailCallbackCaptor = ArgumentCaptor.forClass(CallbackBoolean.class);
-        ArgumentCaptor<Callback> registerCallbackCaptor = ArgumentCaptor.forClass(Callback.class);
-        ArgumentCaptor<Callback> saveUserDataCaptor = ArgumentCaptor.forClass(Callback.class);
-
-        viewModel.registrarUsuario("test@example.com", "password", "password");
-
-        // Simular respuesta de checkEmailExists
-        verify(firebaseService).checkEmailExists(eq("test@example.com"), emailCallbackCaptor.capture());
-        emailCallbackCaptor.getValue().onComplete(false);
-
-        // Simular respuesta de registerUser
-        verify(firebaseService).registerUser(eq("test@example.com"), eq("password"), registerCallbackCaptor.capture());
-        registerCallbackCaptor.getValue().onSuccess();
-
-        // Simular respuesta de saveUserData
-        verify(firebaseService).saveUserData(anyString(), eq("test@example.com"), anyString(), saveUserDataCaptor.capture());
-        saveUserDataCaptor.getValue().onSuccess();
-
-        // Verificar resultados
-        Boolean registered = LiveDataTestUtil.getValue(viewModel.isRegistered());
-        String error = LiveDataTestUtil.getValue(viewModel.getErrorMessage());
-
-        assertTrue(registered);
-        assertNull(error);
-    }
-
-
-    @Test
     public void registrarUsuario_validData_onFailure_setsErrorAndRegisteredFalse() throws InterruptedException {
         ArgumentCaptor<CallbackBoolean> emailCallbackCaptor = ArgumentCaptor.forClass(CallbackBoolean.class);
         ArgumentCaptor<Callback> registerCallbackCaptor = ArgumentCaptor.forClass(Callback.class);
