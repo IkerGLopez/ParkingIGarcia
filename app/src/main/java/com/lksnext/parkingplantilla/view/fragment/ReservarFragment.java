@@ -1,6 +1,5 @@
 package com.lksnext.parkingplantilla.view.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,15 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lksnext.parkingplantilla.R;
-import com.lksnext.parkingplantilla.model.utils.DisabledPastDaysDecorator;
-import com.lksnext.parkingplantilla.model.utils.HourValidator;
+import com.lksnext.parkingplantilla.model.utils.DisabledDaysDecorator;
 import com.lksnext.parkingplantilla.viewmodel.MainViewModel;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.time.format.DateTimeFormatter;
 import java.time.ZoneId;
 
@@ -35,12 +30,7 @@ public class ReservarFragment extends Fragment {
     private TextView tvTimeStart, tvTimeEnd;
     private Button btnIncreaseStart, btnDecreaseStart, btnIncreaseEnd, btnDecreaseEnd, btnSeleccionarHora;
 
-    private LocalTime selectedStartTime;
-    private LocalTime selectedEndTime;
-    private LocalDate selectedDate;
 
-    private boolean isDateSelected = false;
-    private boolean isTimeSelected = false;
     private final ZoneId zoneId = ZoneId.of("Europe/Madrid");
 
     private MainViewModel viewModel;
@@ -64,113 +54,54 @@ public class ReservarFragment extends Fragment {
         btnDecreaseEnd = view.findViewById(R.id.btnDecreaseEnd);
         btnSeleccionarHora = view.findViewById(R.id.btnSeleccionarHora);
 
-        viewModel.setupInitialTime(zoneId);
-        setupListeners();
-
-        checkEnableButton();
-
-        calendarView.state().edit()
-                .setMinimumDate(CalendarDay.today())
-                .commit();
-
-        calendarView.addDecorator(new DisabledPastDaysDecorator(requireContext()));
-
-
-        btnSeleccionarHora.setEnabled(false);
-        btnSeleccionarHora.setBackgroundColor(getResources().getColor(R.color.NotMoradito));
-
-        return view;
-    }
-
-//    private void setupInitialTime() {
-//        LocalTime now = LocalTime.now(zoneId).truncatedTo(ChronoUnit.MINUTES);
-//        int minute = now.getMinute();
-//
-//        if (minute == 0) {
-//            selectedStartTime = now;
-//        } else if (minute <= 30) {
-//            selectedStartTime = now.withMinute(30);
-//        } else {
-//            selectedStartTime = now.plusHours(1).withMinute(0);
-//        }
-//
-//        selectedEndTime = selectedStartTime.plusMinutes(30);
-//        updateTimeDisplay();
-//    }
-
-
-
-    private void setupListeners() {
-        calendarView.setOnDateChangedListener((widget, date, selected) -> {
-            selectedDate = LocalDate.of(date.getYear(), date.getMonth(), date.getDay());
-            isDateSelected = true;
-            checkEnableButton();
-        });
-
-        btnIncreaseStart.setOnClickListener(v -> {
-            selectedStartTime = selectedStartTime.plusMinutes(30);
-            if (selectedStartTime.isAfter(selectedEndTime.minusMinutes(30))) {
-                selectedEndTime = selectedStartTime.plusMinutes(30);
-            }
-            isTimeSelected = true;
-            updateTimeDisplay();
-            checkEnableButton();
-        });
-
-        btnDecreaseStart.setOnClickListener(v -> {
-            selectedStartTime = selectedStartTime.minusMinutes(30);
-            if (selectedStartTime.isAfter(selectedEndTime.minusMinutes(30))) {
-                selectedEndTime = selectedStartTime.plusMinutes(30);
-            }
-            isTimeSelected = true;
-            updateTimeDisplay();
-            checkEnableButton();
-        });
-
-        btnIncreaseEnd.setOnClickListener(v -> {
-            selectedEndTime = selectedEndTime.plusMinutes(30);
-            isTimeSelected = true;
-            updateTimeDisplay();
-            checkEnableButton();
-        });
-
-        btnDecreaseEnd.setOnClickListener(v -> {
-            if (selectedEndTime.isAfter(selectedStartTime.plusMinutes(30))) {
-                selectedEndTime = selectedEndTime.minusMinutes(30);
-            }
-            isTimeSelected = true;
-            updateTimeDisplay();
-            checkEnableButton();
-        });
+        btnIncreaseStart.setOnClickListener(v -> viewModel.increaseStartTime());
+        btnDecreaseStart.setOnClickListener(v -> viewModel.decreaseStartTime());
+        btnIncreaseEnd.setOnClickListener(v -> viewModel.increaseEndTime());
+        btnDecreaseEnd.setOnClickListener(v -> viewModel.decreaseEndTime());
 
         btnSeleccionarHora.setOnClickListener(v -> {
-            if (selectedDate != null && selectedStartTime != null && selectedEndTime != null) {
-                viewModel.setReservaData(selectedDate, selectedStartTime, selectedEndTime);
+            if (Boolean.TRUE.equals(viewModel.isTimeValid().getValue())) {
+                viewModel.confirmarHorario();
                 Toast.makeText(getContext(), "Horario seleccionado", Toast.LENGTH_SHORT).show();
                 navigateToReservarPlazaFragment();
             } else {
                 Toast.makeText(getContext(), "Selecciona una fecha y un horario", Toast.LENGTH_SHORT).show();
             }
         });
-    }
 
-    private void updateTimeDisplay() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
-        tvTimeStart.setText(selectedStartTime.format(formatter));
-        tvTimeEnd.setText(selectedEndTime.format(formatter));
-    }
+        calendarView.state().edit()
+                .setMinimumDate(CalendarDay.today())
+                .commit();
 
-    private void checkEnableButton() {
-        if (isDateSelected && isTimeSelected) {
-            btnSeleccionarHora.setEnabled(true);
-            btnSeleccionarHora.setBackgroundColor(getResources().getColor(R.color.purple_500));
-        } else {
-            btnSeleccionarHora.setEnabled(false);
-            btnSeleccionarHora.setBackgroundColor(Color.parseColor("#AAA9BA"));
-        }
+        calendarView.addDecorator(new DisabledDaysDecorator(requireContext()));
 
-        btnDecreaseStart.setEnabled(HourValidator.canDecreaseStart(selectedStartTime, zoneId));
-        btnDecreaseEnd.setEnabled(HourValidator.canDecreaseEnd(selectedStartTime, selectedEndTime));
+        calendarView.setOnDateChangedListener((widget, date, selected) -> {
+            viewModel.onDateSelected(date.getYear(), date.getMonth(), date.getDay());
+        });
+
+        viewModel.getHorarioUIState().observe(getViewLifecycleOwner(), state -> {
+            if (state != null) {
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+                if (state.startTime != null && state.endTime != null) {
+                    tvTimeStart.setText(state.startTime.format(formatter));
+                    tvTimeEnd.setText(state.endTime.format(formatter));
+                    btnIncreaseEnd.setEnabled(state.canIncreaseEnd);
+                    btnDecreaseStart.setEnabled(state.canDecreaseStart);
+                }
+
+                btnSeleccionarHora.setEnabled(state.isValid);
+                btnSeleccionarHora.setBackgroundColor(
+                        getResources().getColor(state.isValid ? R.color.Moradito : R.color.NotMoradito)
+                );
+
+                btnDecreaseStart.setEnabled(state.canDecreaseStart);
+                btnDecreaseEnd.setEnabled(state.canDecreaseEnd);
+            }
+        });
+
+        viewModel.setupInitialTime(zoneId);
+
+        return view;
     }
 
     private void navigateToReservarPlazaFragment() {

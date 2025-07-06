@@ -25,6 +25,7 @@
         <activity
             android:name="com.lksnext.parkingplantilla.view.activity.MainActivity"
             android:exported="true" />
+        <receiver android:name="com.lksnext.parkingplantilla.model.notification.ReservaNotificationReceiver" />
     </application>
 
 </manifest>

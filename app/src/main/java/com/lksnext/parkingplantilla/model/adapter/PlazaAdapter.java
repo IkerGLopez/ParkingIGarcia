@@ -49,13 +49,11 @@ public class PlazaAdapter extends RecyclerView.Adapter<PlazaAdapter.PlazaViewHol
         // Gestión del click (solo si la plaza está libre)
         holder.itemView.setOnClickListener(v -> {
             if (plaza.getEstado() == Plaza.Estado.LIBRE) {
-                // Desmarcar anterior
                 if (selectedPosition != -1) {
                     plazaList.get(selectedPosition).setEstado(Plaza.Estado.LIBRE);
                     notifyItemChanged(selectedPosition);
                 }
 
-                // Marcar nueva plaza
                 plaza.setEstado(Plaza.Estado.SELECCIONADA);
                 selectedPosition = holder.getAdapterPosition();
                 notifyItemChanged(selectedPosition);
@@ -84,28 +82,28 @@ public class PlazaAdapter extends RecyclerView.Adapter<PlazaAdapter.PlazaViewHol
             case NORMAL:
                 switch (plaza.getEstado()) {
                     case LIBRE: return R.drawable.sitio_libre;
-                    case OCUPADA: return R.drawable.sitio_ocupado;
+                    case OCUPADA, INACCESIBLE: return R.drawable.sitio_ocupado;
                     case SELECCIONADA: return R.drawable.sitio_seleccionado;
                 }
                 break;
             case MOTO:
                 switch (plaza.getEstado()) {
                     case LIBRE: return R.drawable.moto_sitio_libre;
-                    case OCUPADA: return R.drawable.moto_sitio_ocupado;
+                    case OCUPADA, INACCESIBLE: return R.drawable.moto_sitio_ocupado;
                     case SELECCIONADA: return R.drawable.moto_sitio_seleccionado;
                 }
                 break;
             case ELECTRICO:
                 switch (plaza.getEstado()) {
                     case LIBRE: return R.drawable.electrico_sitio_libre;
-                    case OCUPADA: return R.drawable.electrico_sitio_ocupado;
+                    case OCUPADA, INACCESIBLE: return R.drawable.electrico_sitio_ocupado;
                     case SELECCIONADA: return R.drawable.electrico_sitio_seleccionado;
                 }
                 break;
             case MINUSVALIDO:
                 switch (plaza.getEstado()) {
                     case LIBRE: return R.drawable.minusvalido_sitio_libre;
-                    case OCUPADA: return R.drawable.minusvalido_sitio_ocupado;
+                    case OCUPADA, INACCESIBLE: return R.drawable.minusvalido_sitio_ocupado;
                     case SELECCIONADA: return R.drawable.minusvalido_sitio_seleccionado;
                 }
                 break;

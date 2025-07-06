@@ -3,29 +3,25 @@ package com.lksnext.parkingplantilla.model.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.lksnext.parkingplantilla.R;
 import com.lksnext.parkingplantilla.model.domain.Reserva;
-import com.lksnext.parkingplantilla.model.listener.ReservaListener;
+import com.lksnext.parkingplantilla.R;
 
 import java.util.List;
 
-public class ReservaActivaAdapter extends RecyclerView.Adapter<ReservaActivaAdapter.ReservaViewHolder> {
+public class ReservaPasadaAdapter extends RecyclerView.Adapter<ReservaPasadaAdapter.ReservaViewHolder> {
 
-    private List<ReservaConId> reservas;
-    private final ReservaListener listener;
+    private List<Reserva> reservas;
 
-    public ReservaActivaAdapter(List<ReservaConId> reservas, ReservaListener listener) {
+    public ReservaPasadaAdapter(List<Reserva> reservas) {
         this.reservas = reservas;
-        this.listener = listener;
     }
 
-    public void setReservas(List<ReservaConId> reservas) {
+    public void setReservas(List<Reserva> reservas) {
         this.reservas = reservas;
         notifyDataSetChanged();
     }
@@ -33,21 +29,18 @@ public class ReservaActivaAdapter extends RecyclerView.Adapter<ReservaActivaAdap
     @NonNull
     @Override
     public ReservaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_reserva_activa, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_reserva_pasada, parent, false);
         return new ReservaViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ReservaViewHolder holder, int position) {
-        ReservaConId item = reservas.get(position);
-        Reserva reserva = item.getReserva();
+        Reserva reserva = reservas.get(position);
 
         holder.tvFecha.setText("Fecha: " + safe(reserva.getFecha()));
         holder.tvHoraInicio.setText("Hora inicio: " + safe(reserva.getHoraInicio()));
         holder.tvHoraFin.setText("Hora fin: " + safe(reserva.getHoraFin()));
         holder.tvPlaza.setText("Plaza: " + safe(reserva.getPlazaId()));
-
-        holder.btnCancelar.setOnClickListener(v -> listener.onCancelar(reserva, item.getDocId()));
     }
 
     @Override
@@ -55,13 +48,8 @@ public class ReservaActivaAdapter extends RecyclerView.Adapter<ReservaActivaAdap
         return reservas.size();
     }
 
-    private String safe(String value) {
-        return value != null ? value : "N/A";
-    }
-
     public static class ReservaViewHolder extends RecyclerView.ViewHolder {
         TextView tvFecha, tvHoraInicio, tvHoraFin, tvPlaza;
-        Button btnCancelar;
 
         public ReservaViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -69,26 +57,11 @@ public class ReservaActivaAdapter extends RecyclerView.Adapter<ReservaActivaAdap
             tvHoraInicio = itemView.findViewById(R.id.tvHoraInicio);
             tvHoraFin = itemView.findViewById(R.id.tvHoraFin);
             tvPlaza = itemView.findViewById(R.id.tvPlaza);
-            btnCancelar = itemView.findViewById(R.id.btnCancelar);
         }
     }
 
-    // Clase auxiliar para asociar Reserva con su documentId
-    public static class ReservaConId {
-        private final Reserva reserva;
-        private final String docId;
-
-        public ReservaConId(Reserva reserva, String docId) {
-            this.reserva = reserva;
-            this.docId = docId;
-        }
-
-        public Reserva getReserva() {
-            return reserva;
-        }
-
-        public String getDocId() {
-            return docId;
-        }
+    private String safe(String value) {
+        return value != null ? value : "N/A";
     }
+
 }

@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,12 +14,9 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.lksnext.parkingplantilla.databinding.ActivityRegisterBinding;
+import com.lksnext.parkingplantilla.model.data.FirebaseServiceImpl;
 import com.lksnext.parkingplantilla.model.utils.QRGenerator;
-import com.lksnext.parkingplantilla.model.utils.ValidationResult;
 import com.lksnext.parkingplantilla.viewmodel.RegisterViewModel;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -61,16 +57,13 @@ public class RegisterActivity extends AppCompatActivity {
         registerViewModel.getUserUid().observe(this, uid -> {
             if (uid != null) {
                 try {
+                    FirebaseServiceImpl firebaseService = new FirebaseServiceImpl();
+                    firebaseService.saveUserDataToPrefs(this);
+
                     String qrContent = String.format("{\"userId\":\"%s\",\"type\":\"parking\",\"version\":\"1.0\"}", uid);
                     Bitmap qrBitmap = QRGenerator.generateQRCodeBitmap(qrContent, 300, 300);
                     String filePath = getFilesDir().getPath() + "/" + uid + ".png";
                     QRGenerator.saveBitmapToFile(qrBitmap, filePath);
-
-                    SharedPreferences prefs = getSharedPreferences("user_prefs", 0);
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("user_id", uid);
-                    editor.apply();
-
                 } catch (Exception e) {
                     Toast.makeText(this, "Error generando el QR: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

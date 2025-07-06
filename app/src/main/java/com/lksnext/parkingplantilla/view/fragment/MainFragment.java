@@ -30,7 +30,7 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        MaterialTextView title = view.findViewById(R.id.title);
+//        MaterialTextView title = view.findViewById(R.id.title);
 //        Button reservarBtn = view.findViewById(R.id.reservarBtn);
 //        Button editarBtn = view.findViewById(R.id.editarBtn);
 //        Button historialBtn = view.findViewById(R.id.historialBtn);

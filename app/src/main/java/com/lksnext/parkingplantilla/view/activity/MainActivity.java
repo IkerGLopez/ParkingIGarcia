@@ -19,7 +19,7 @@ import com.lksnext.parkingplantilla.view.fragment.ReservarFragment;
 import com.lksnext.parkingplantilla.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
-    private MainViewModel mainViewModel;
+    private MainViewModel viewModel;
     private BottomNavigationView bottomNavigationView;
     private boolean isNewUser;
 
@@ -29,10 +29,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Inicializar ViewModel
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        viewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         // Inicializar BottomNavigationView
         bottomNavigationView = findViewById(R.id.bottom_navigation);
+
 
         // Comprobar si es usuario nuevo (pasado en el Intent)
         isNewUser = getIntent().getBooleanExtra("IS_NEW_USER", false);

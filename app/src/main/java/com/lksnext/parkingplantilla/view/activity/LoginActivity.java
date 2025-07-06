@@ -2,18 +2,16 @@ package com.lksnext.parkingplantilla.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.InputType;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.lksnext.parkingplantilla.databinding.ActivityLoginBinding;
+import com.lksnext.parkingplantilla.model.data.FirebaseServiceImpl;
 import com.lksnext.parkingplantilla.viewmodel.LoginViewModel;
 
 public class LoginActivity extends AppCompatActivity {
@@ -32,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+//        new DataRepository().generateInitialDataIfNeeded(this);
+
         emailEditText = binding.email;
         passwordEditText = binding.password;
         login = binding.btnLogin;
@@ -45,7 +45,9 @@ public class LoginActivity extends AppCompatActivity {
             loginViewModel.loginUser(email, password);
             loginViewModel.isLogged().observe(this, logged -> {
                 if (logged != null && logged) {
-                    //Login Correcto.
+                    FirebaseServiceImpl firebaseService = new FirebaseServiceImpl();
+                    firebaseService.saveUserDataToPrefs(this);
+
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();

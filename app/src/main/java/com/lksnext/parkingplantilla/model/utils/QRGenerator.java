@@ -14,13 +14,6 @@ import java.io.IOException;
 
 public class QRGenerator {
 
-    /**
-     * Genera un QR code como Bitmap
-     * @param text Texto a codificar
-     * @param width Ancho del QR
-     * @param height Alto del QR
-     * @return Bitmap del QR generado
-     */
     public static Bitmap generateQRCodeBitmap(String text, int width, int height) throws WriterException {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, width, height);
@@ -36,18 +29,10 @@ public class QRGenerator {
         return bitmap;
     }
 
-    /**
-     * Genera un QR code con tamaño por defecto
-     * @param text Texto a codificar
-     * @return Bitmap del QR generado
-     */
     public static Bitmap generateQRCodeBitmap(String text) throws WriterException {
         return generateQRCodeBitmap(text, 512, 512);
     }
 
-    /**
-     * Método auxiliar para guardar un Bitmap como archivo PNG
-     */
     public static void saveBitmapToFile(Bitmap bitmap, String filePath) {
         try {
             FileOutputStream out = new FileOutputStream(filePath);

@@ -10,19 +10,6 @@
     android:orientation="vertical"
     tools:context=".view.fragment.QRFragment">
 
-    <TextView
-        android:id="@+id/textQR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CÓDIGO QR"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/Moradito"
-        app:layout_constraintBottom_toTopOf="@id/imageViewQrCode"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
 
     <ImageView
         android:id="@+id/imageViewQrCode"
@@ -34,4 +21,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:src="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/cerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar sesión"
+        android:textSize="18sp"
+        android:textColor="#757575"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="24dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
