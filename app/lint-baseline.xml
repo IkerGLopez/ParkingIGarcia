@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.9.1" type="baseline" client="gradle" dependencies="false" name="AGP (8.9.1)" variant="all" version="8.9.1">
+
+    <issue
+        id="MissingPermission"
+        message="Setting Exact alarms with `setExact` requires the `SCHEDULE_EXACT_ALARM` permission or power exemption from user; it is intended for applications where the user knowingly schedules actions to happen at a precise time such as alarms, clocks, calendars, etc. Check out the javadoc on this permission to make sure your use case is valid."
+        errorLine1="        alarmManager.setExact(android.app.AlarmManager.RTC_WAKEUP, triggerAtMillis, pendingIntent);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/view/fragment/ReservarPlazaFragment.java"
+            line="182"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        errorLine1="            String matricula = matriculaText.getText().toString().trim().toUpperCase(); // Matricula en mayúsculas"
+        errorLine2="                                                                         ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/view/fragment/ConfigFragment.java"
+            line="86"
+            column="74"/>
+    </issue>
+
+    <issue
+        id="SimpleDateFormat"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
+        errorLine1="            java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(&quot;yyyy-MM-dd HH:mm&quot;);"
+        errorLine2="                                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/view/fragment/ReservarPlazaFragment.java"
+            line="147"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="UseSwitchCompatOrMaterialCode"
+        message="Use `SwitchCompat` from AppCompat or `MaterialSwitch` from Material library"
+        errorLine1="    private Switch electricoSwitch, discapacidadSwitch;"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/view/fragment/ConfigFragment.java"
+            line="32"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UseSwitchCompatOrMaterialCode"
+        message="Use `SwitchCompat` from AppCompat or `MaterialSwitch` from Material library"
+        errorLine1="    private Switch electricoSwitch, discapacidadSwitch;"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/view/fragment/ConfigFragment.java"
+            line="32"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="UseSwitchCompatOrMaterialXml"
+        message="Use `SwitchCompat` from AppCompat or `MaterialSwitch` from Material library"
+        errorLine1="            &lt;Switch"
+        errorLine2="            ^">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="108"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UseSwitchCompatOrMaterialXml"
+        message="Use `SwitchCompat` from AppCompat or `MaterialSwitch` from Material library"
+        errorLine1="            &lt;Switch"
+        errorLine2="            ^">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="123"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.appcompat:appcompat than 1.7.0 is available: 1.7.1"
+        errorLine1="    implementation &apos;androidx.appcompat:appcompat:1.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="57"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.navigation:navigation-fragment than 2.8.9 is available: 2.9.1"
+        errorLine1="    implementation &apos;androidx.navigation:navigation-fragment:2.8.9&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="59"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.navigation:navigation-ui than 2.8.9 is available: 2.9.1"
+        errorLine1="    implementation &apos;androidx.navigation:navigation-ui:2.8.9&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="60"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.firebase:firebase-bom than 33.15.0 is available: 33.16.0"
+        errorLine1="    implementation platform(&apos;com.google.firebase:firebase-bom:33.15.0&apos;)"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="80"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDynamicVersion"
+        message="Avoid using + in version numbers; can lead to unpredictable and unrepeatable builds (junit:junit:4.+)"
+        errorLine1="    testImplementation &apos;junit:junit:4.+&apos;"
+        errorLine2="                       ~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="67"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="SpUsage"
+        message="Should use &quot;`sp`&quot; instead of &quot;`dp`&quot; for text sizes"
+        errorLine1="            android:textSize=&quot;16dp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="60"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="SpUsage"
+        message="Should use &quot;`sp`&quot; instead of &quot;`dp`&quot; for text sizes"
+        errorLine1="        android:textSize=&quot;18dp&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="80"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="SpUsage"
+        message="Should use &quot;`sp`&quot; instead of &quot;`dp`&quot; for text sizes"
+        errorLine1="        android:textSize=&quot;18dp&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="81"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="NotifyDataSetChanged"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort."
+        errorLine1="        notifyDataSetChanged();"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="30"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="NotifyDataSetChanged"
+        message="It will always be more efficient to use more specific change events if you can. Rely on `notifyDataSetChanged` as a last resort."
+        errorLine1="        notifyDataSetChanged();"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="26"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; `SDK_INT` is always >= 26"
+        errorLine1="        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/notification/ReservaNotificationReceiver.java"
+            line="23"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="This folder configuration (`v24`) is unnecessary; `minSdkVersion` is 26. Merge all the resources in this folder into `drawable`.">
+        <location
+            file="src/main/res/drawable-v24"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 26. Merge all the resources in this folder into `mipmap-anydpi`.">
+        <location
+            file="src/main/res/mipmap-anydpi-v26"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; `SDK_INT` is always >= 21"
+        errorLine1="        &lt;item name=&quot;android:statusBarColor&quot; tools:targetApi=&quot;l&quot;>?attr/colorPrimaryVariant&lt;/item>"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/themes.xml"
+            line="13"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="VectorPath"
+        message="Very long vector path (971 characters), which is bad for performance. Considering reducing precision, removing minor details or rasterizing vector."
+        errorLine1="      android:pathData=&quot;M1.87,14.69h22.66L24.5,14.3V4.13C24.5,1.86 26.86,0 29.76,0c2.89,0 5.26,1.87 5.26,4.13V14.3l-0.03,0.39h38.59l-0.03,-0.39V4.13C73.55,1.86 75.91,0 78.8,0c2.89,0 5.26,1.87 5.26,4.13V14.3l-0.03,0.39h24.11c1.03,0 1.87,0.84 1.87,1.87v19.46c0,1.03 -0.84,1.87 -1.87,1.87H1.87C0.84,37.88 0,37.04 0,36.01V16.55C0,15.52 0.84,14.69 1.87,14.69L1.87,14.69zM0.47,42.19h109.08c0.26,0 0.46,0.21 0.46,0.46l0,0v79.76c0,0.25 -0.21,0.46 -0.46,0.46l-109.08,0c-0.25,0 -0.47,-0.21 -0.47,-0.46V42.66C0,42.4 0.21,42.19 0.47,42.19L0.47,42.19L0.47,42.19zM8.23,49.97h95.07c0.52,0 0.94,0.45 0.94,0.94v64.08c0,0.49 -0.45,0.94 -0.94,0.94H7.77c-0.49,0 -0.94,-0.42 -0.94,-0.94l0,-63.63c0,-1.03 0.84,-1.86 1.86,-1.86L8.23,49.97L8.23,49.97zM78.34,29.87c2.89,0 5.26,-1.87 5.26,-4.13V15.11l-0.03,-0.41H73.11l-0.03,0.41v10.16c0,2.27 2.36,4.13 5.25,4.13L78.34,29.87L78.34,29.87zM29.29,29.87c2.89,0 5.26,-1.87 5.26,-4.13V15.11l-0.03,-0.41H24.07l-0.03,0.41v10.16c0,2.27 2.36,4.13 5.25,4.13L29.29,29.87L29.29,29.87z&quot;"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/drawable/calendar_blank_icon.xml"
+            line="8"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.calendar_blank_icon` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/calendar_blank_icon.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.clock_icon` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/clock_icon.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_500` appears to be unused"
+        errorLine1="    &lt;color name=&quot;purple_500&quot;>#FF6200EE&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="3"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.purple_700` appears to be unused"
+        errorLine1="    &lt;color name=&quot;purple_700&quot;>#FF3700B3&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="4"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.black` appears to be unused"
+        errorLine1="    &lt;color name=&quot;black&quot;>#FF000000&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="7"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.red` appears to be unused"
+        errorLine1="    &lt;color name=&quot;red&quot;>#E32636&lt;/color>"
+        errorLine2="           ~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="9"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.green` appears to be unused"
+        errorLine1="    &lt;color name=&quot;green&quot;>#008000&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="10"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.orange` appears to be unused"
+        errorLine1="    &lt;color name=&quot;orange&quot;>#FF7F50&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="11"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.color.orangeDark` appears to be unused"
+        errorLine1="    &lt;color name=&quot;orangeDark&quot;>#B13102&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/colors.xml"
+            line="12"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_clock_playstore` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_clock_playstore.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_launcher` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_launcher_background` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_launcher_background.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_launcher_foreground` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable-v24/ic_launcher_foreground.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_launcher_round` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_round.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_logout` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_logout.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_newres` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_newres.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_newres_background` appears to be unused"
+        errorLine1="&lt;vector"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_newres_background.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_newres_foreground` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_newres_foreground.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_newres_playstore` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_newres_playstore.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_newres_round` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_newres_round.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_person` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_person.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_person_background` appears to be unused"
+        errorLine1="&lt;vector"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_person_background.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_person_playstore` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_person_playstore.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_person_round` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_person_round.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_reservations` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_reservations.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_reservations_background` appears to be unused"
+        errorLine1="&lt;vector"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_reservations_background.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_reservations_foreground` appears to be unused"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/drawable/ic_reservations_foreground.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_reservations_playstore` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_reservations_playstore.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.mipmap.ic_reservations_round` appears to be unused">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_reservations_round.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.ic_time_playstore` appears to be unused">
+        <location
+            file="src/main/res/drawable/ic_time_playstore.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.drawable.lks_icon` appears to be unused">
+        <location
+            file="src/main/res/drawable/lks_icon.png"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.navigation.nav_graph` appears to be unused"
+        errorLine1="&lt;navigation xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="src/main/res/navigation/nav_graph.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.selectDate` appears to be unused"
+        errorLine1="    &lt;string name=&quot;selectDate&quot;>Selecciona una fecha&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="4"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.fragment_main` appears to be unused"
+        errorLine1="    &lt;string name=&quot;fragment_main&quot;>Main&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="6"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.fragment_step1` appears to be unused"
+        errorLine1="    &lt;string name=&quot;fragment_step1&quot;>Step 1&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="7"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.fragment_step2` appears to be unused"
+        errorLine1="    &lt;string name=&quot;fragment_step2&quot;>Step 2&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="8"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.fragment_end` appears to be unused"
+        errorLine1="    &lt;string name=&quot;fragment_end&quot;>End&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="9"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.buscar` appears to be unused"
+        errorLine1="    &lt;string name=&quot;buscar&quot;>Buscar plazas libres&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="10"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.hello_blank_fragment` appears to be unused"
+        errorLine1="    &lt;string name=&quot;hello_blank_fragment&quot;>Hello blank fragment&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="12"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/electrico_sitio_libre.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/electrico_sitio_libre.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/electrico_sitio_ocupado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/electrico_sitio_ocupado.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/electrico_sitio_seleccionado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/electrico_sitio_seleccionado.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/ic_clock_playstore.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/ic_clock_playstore.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/ic_logout.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/ic_logout.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/ic_newres_playstore.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/ic_newres_playstore.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/ic_person_playstore.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/ic_person_playstore.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/ic_reservations_playstore.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/ic_reservations_playstore.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/ic_time_playstore.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/ic_time_playstore.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/lks_icon.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/lks_icon.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/logo_appark.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/logo_appark.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/logo_pequeno_appark.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/logo_pequeno_appark.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/minusvalido_sitio_libre.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/minusvalido_sitio_libre.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/minusvalido_sitio_ocupado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/minusvalido_sitio_ocupado.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/minusvalido_sitio_seleccionado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/minusvalido_sitio_seleccionado.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/moto_sitio_libre.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/moto_sitio_libre.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/moto_sitio_ocupado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/moto_sitio_ocupado.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/moto_sitio_seleccionado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/moto_sitio_seleccionado.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/sitio_libre.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/sitio_libre.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/sitio_ocupado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/sitio_ocupado.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        message="Found bitmap drawable `res/drawable/sitio_seleccionado.png` in densityless folder">
+        <location
+            file="src/main/res/drawable/sitio_seleccionado.png"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="13"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="13"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_main.xml"
+            line="13"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_qr.xml"
+            line="14"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="ContentDescription"
+        message="Missing `contentDescription` attribute on image"
+        errorLine1="    &lt;ImageView"
+        errorLine2="     ~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_plaza.xml"
+            line="7"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvFecha.setText(&quot;Fecha: &quot; + safe(reserva.getFecha()));"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="45"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvFecha.setText(&quot;Fecha: &quot; + safe(reserva.getFecha()));"
+        errorLine2="                               ~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="45"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvHoraInicio.setText(&quot;Hora inicio: &quot; + safe(reserva.getHoraInicio()));"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="46"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvHoraInicio.setText(&quot;Hora inicio: &quot; + safe(reserva.getHoraInicio()));"
+        errorLine2="                                    ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="46"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvHoraFin.setText(&quot;Hora fin: &quot; + safe(reserva.getHoraFin()));"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="47"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvHoraFin.setText(&quot;Hora fin: &quot; + safe(reserva.getHoraFin()));"
+        errorLine2="                                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="47"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvPlaza.setText(&quot;Plaza: &quot; + safe(reserva.getPlazaId()));"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="48"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvPlaza.setText(&quot;Plaza: &quot; + safe(reserva.getPlazaId()));"
+        errorLine2="                               ~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaActivaAdapter.java"
+            line="48"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvFecha.setText(&quot;Fecha: &quot; + safe(reserva.getFecha()));"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="40"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvFecha.setText(&quot;Fecha: &quot; + safe(reserva.getFecha()));"
+        errorLine2="                               ~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="40"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvHoraInicio.setText(&quot;Hora inicio: &quot; + safe(reserva.getHoraInicio()));"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="41"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvHoraInicio.setText(&quot;Hora inicio: &quot; + safe(reserva.getHoraInicio()));"
+        errorLine2="                                    ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="41"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvHoraFin.setText(&quot;Hora fin: &quot; + safe(reserva.getHoraFin()));"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="42"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvHoraFin.setText(&quot;Hora fin: &quot; + safe(reserva.getHoraFin()));"
+        errorLine2="                                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="42"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        holder.tvPlaza.setText(&quot;Plaza: &quot; + safe(reserva.getPlazaId()));"
+        errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="43"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="String literal in `setText` can not be translated. Use Android resources instead."
+        errorLine1="        holder.tvPlaza.setText(&quot;Plaza: &quot; + safe(reserva.getPlazaId()));"
+        errorLine2="                               ~~~~~~~~~">
+        <location
+            file="src/main/java/com/lksnext/parkingplantilla/model/adapter/ReservaPasadaAdapter.java"
+            line="43"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Email&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Email&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="32"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Contraseña&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Contraseña&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="48"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;¿Has olvidado tu contraseña?&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;¿Has olvidado tu contraseña?&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="66"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Login&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Login&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="74"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Regístrate&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;Regístrate&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_login.xml"
+            line="85"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Email&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Email&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="32"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Contraseña&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Contraseña&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="48"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Repite la contraseña&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Repite la contraseña&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="65"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Register&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;Register&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="74"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Volver&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;Volver&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="85"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Tipo de vehículo&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Tipo de vehículo&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="27"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Coche&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;Coche&quot; />"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="43"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Moto&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;Moto&quot; />"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="50"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Marca&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Marca&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="58"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Modelo&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Modelo&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="72"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Matrícula&quot;, should use `@string` resource"
+        errorLine1="            android:hint=&quot;Matrícula&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="86"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Eléctrico&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;Eléctrico&quot; />"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="106"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Discapacidad&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;Discapacidad&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="120"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Guardar&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Guardar&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_config.xml"
+            line="139"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;NO TIENES RESERVAS ACTIVAS&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;NO TIENES RESERVAS ACTIVAS&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_editar.xml"
+            line="27"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;NO TIENES RESERVAS PASADAS&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;NO TIENES RESERVAS PASADAS&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_historial.xml"
+            line="27"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Cerrar sesión&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;Cerrar sesión&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_qr.xml"
+            line="29"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;-&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;-&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar.xml"
+            line="43"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;09:00&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;09:00&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar.xml"
+            line="50"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;+&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;+&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar.xml"
+            line="56"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;-&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;-&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar.xml"
+            line="74"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;10:00&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;10:00&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar.xml"
+            line="81"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;+&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;+&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar.xml"
+            line="87"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;SELECCIONAR HORA&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;SELECCIONAR HORA&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar.xml"
+            line="95"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;RESERVAR APARCAMIENTO&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;RESERVAR APARCAMIENTO&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_reservar_plaza.xml"
+            line="21"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Fecha: 2025-07-01&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Fecha: 2025-07-01&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_activa.xml"
+            line="30"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Hora inicio: 17:00&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Hora inicio: 17:00&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_activa.xml"
+            line="39"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Hora fin: 18:00&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Hora fin: 18:00&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_activa.xml"
+            line="48"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Plaza: A-12&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Plaza: A-12&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_activa.xml"
+            line="57"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Cancelar&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;Cancelar&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_activa.xml"
+            line="76"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Fecha: 2025-07-01&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Fecha: 2025-07-01&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_pasada.xml"
+            line="30"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Hora inicio: 17:00&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Hora inicio: 17:00&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_pasada.xml"
+            line="39"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Hora fin: 18:00&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Hora fin: 18:00&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_pasada.xml"
+            line="48"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Plaza: A-12&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;Plaza: A-12&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/item_reserva_pasada.xml"
+            line="57"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Use &quot;`end`&quot; instead of &quot;`right`&quot; to ensure correct behavior in right-to-left locales"
+        errorLine1="        android:layout_gravity=&quot;right&quot;"
+        errorLine2="                                ~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="76"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="RtlHardcoded"
+        message="Consider replacing `android:layout_marginRight` with `android:layout_marginEnd=&quot;40dp&quot;` to better support right-to-left layouts"
+        errorLine1="        android:layout_marginRight=&quot;40dp&quot;/>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_register.xml"
+            line="77"
+            column="9"/>
+    </issue>
+
+</issues>
