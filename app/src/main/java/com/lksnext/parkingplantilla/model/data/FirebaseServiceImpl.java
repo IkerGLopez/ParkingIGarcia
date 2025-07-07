@@ -33,7 +33,7 @@ public class FirebaseServiceImpl implements FirebaseService {
 
     public FirebaseServiceImpl() {
         this.auth = FirebaseAuth.getInstance();
-//        this.db = FirebaseFirestore.getInstance();
+        this.db = FirebaseFirestore.getInstance();
     }
 
     public FirebaseServiceImpl(FirebaseAuth auth, FirebaseFirestore db) {
